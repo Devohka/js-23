@@ -23,7 +23,7 @@ const poly = new Account({
     login: "Poly",
     email: "poly@mail.com",
 });
-getInfo(poly.login, poly.email);
-poly.getInfo(); // Login: Poly, Email: poly@mail.com
+poly.getInfo(poly.login, poly.email);// Login: Poly, Email: poly@mail.com
+ 
 console.log(poly);
 

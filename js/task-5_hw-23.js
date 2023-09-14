@@ -19,8 +19,8 @@ class Car {
         this.carMaxSpeed = maxSpeed;
         this.carPrice = price;
     };
-   getSpecs(car) {
-        return this.maxSpeed, value, isOn, distance, this.price;
+    getSpecs(car) {
+        return this.maxSpeed, this.value, this.isOn, this.distance, this.price, car;
     };
 
     /*
@@ -32,7 +32,7 @@ class Car {
     * Записує у властивість isOn значення true
     */
     turnOn() {
-        isOn = "true";
+        this.isOn === "true";
     };
     /*
     * Додай код для того, щоб заглушити автомобіль
@@ -40,47 +40,47 @@ class Car {
     * і скидає поточну швидкість в 0
     */
     turnOff() {
-        isOn = "false";
+        this.isOn === "false";
     };
     /*
     * Додає до властивості speed отримане значення,
     * за умови, що результуюча швидкість
     * не більше, ніж значення властивості maxSpeed
     */
-    accelerate(value) {
-        if (value === this.maxSpeed || value < this.maxSpeed && value > 0) {
-            return value;
+    accelerate({ value }) {
+        if (this.value === this.maxSpeed || this.value < this.maxSpeed && this.value > 0) {
+            return this.value;
         }
     };
     /*
     * Забирає від властивості speed отримане значення,
     * за умови, що результуюча швидкість не менше нуля
     */
-    decelerate(value) {
-        return value;
+    decelerate({ value }) {
+        return this.value;
     };
     /*
     * Додає в поле distance кілометраж (hours * speed),
     * але тільки в тому випадку, якщо машина заведена!
     */
     drive(hours) {
-        if (isOn === "true") {
-           return hours * value;
+        if (this.isOn === "true") {
+            return hours * this.value;
         } else {
-            return `заведіть ${car}`;
+            return "заведіть автомобіль";
         };
     };
 };
 const mustang = new Car({ maxSpeed: 200, price: 2000 });
 mustang.turnOn();
-mustang.accelerate(50);
+mustang.accelerate({ value: 50 });
 mustang.drive(2);
-Car.getSpecs(mustang);
+mustang.getSpecs(mustang);
 // maxSpeed: 200, speed: 50, isOn: true, distance: 100, price: 2000
 mustang.decelerate(20);
 mustang.drive(1);
 mustang.turnOff();
-Car.getSpecs(mustang);
+mustang.getSpecs(mustang);
 // maxSpeed: 200, speed: 0, isOn: false, distance: 130, price: 2000
 console.log(mustang.price); // 2000
 mustang.price = 4000;
